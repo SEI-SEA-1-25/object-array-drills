@@ -29,6 +29,17 @@ var bandInfo = album1.albumDetails.label
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
 album1.title = "Talking Heads: 77"
 
+
+// NOTES:
+// ^^^^ this way will add a new key and value to the bottom
+//of the object.  In this case, it replaces the key and value because the key
+//"title" already exists.  
+//
+// Below shows using bracket notation how to access the values within
+// the keys of an object
+//album1.['title'] = "Talking Heads: 77"
+
+
 console.log(album1.title)
 
 const album2 = {
@@ -60,6 +71,12 @@ const album3 = {
 var test = album3.albumDetails.formats.push(album2.albumDetails.formats[0]);
 
 console.log(album3.albumDetails.formats);
+
+//NOTES FROM CLASS REVIEW
+//Shorter way to write the above:
+// var test = album2.albumDetails.formats[0]
+//album3.albumDetails.formats.push(test)
+
 
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
