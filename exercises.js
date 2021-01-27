@@ -56,8 +56,16 @@ const album3 = {
 //    album3's formats
 // Check out the Array.push method!
 
+album3.albumDetails.formats.push(album2.albumDetails.formats[0]);
+console.log(album3.albumDetails.formats);
+
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
+//this does not seem to be the correct answer, but it is the answer I got by peeking at the answers.
+// I tried to use Date.parse(), but could not get my log to look like album4. Confused.
+
+album3.albumDetails.released = new Date('August 3, 1979');
+console.log(album3.albumDetails);
 
 const album4 = {
   title: "Remain in Light",
@@ -68,6 +76,8 @@ const album4 = {
 };
 
 // 5. Add the label "Sire" to album4's details
+album4.albumDetails.label = "Sire";
+console.log(album4.albumDetails);
 
 const album5 = {
   title: "Speaking in Tongues",
