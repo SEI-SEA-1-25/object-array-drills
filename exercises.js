@@ -250,12 +250,54 @@ console.log("The number " + numCheck[i] + " is divisible by 3");
 
 // 1. Use a for loop to print out the name of each Talking Heads album
 
+let albumArr = talkingHeadsAlbums.length;
+
+for (let i =0; i < albumArr; i++){
+  console.log(talkingHeadsAlbums[i])
+};
+
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
+/*
+let sireTally = 0;
+
+let albumVar = talkingHeadsAlbums.length;
+
+for (let i = 0; i < albumVar; i++){
+  
+  for ((album of talkingHeadsAlbums) === album.label["Sire"] ){
+    sireTally++;
+    console.log(sireTally);
+  }else if (talkingHeadsAlbums[i].albumDetails.label === "Sire"){
+    sireTally++;
+    console.log(sireTally);
+  }else{
+    console.log(sireTally);
+  }
+}
+
+let sireTally = 0;
+
+for(album of talkingHeadsAlbums){
+  if(album.labels === talkingHeadsAlbums.albumDetails.labels["Sire"]){
+    sireTally++;
+    console.log(sireTally);
+  }else if (album.label === "Sire"){
+    sireTally++;
+    console.log(sireTally);
+  }else{
+    console.log(sireTally);
+  }
+}
+*/
+
+
+
+
 
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
