@@ -23,8 +23,9 @@ const album1 = {
 
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
-
+let labelInfo = album1.albumDetails.label;
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
+album1.title = "Talking Heads: 77";
 
 const album2 = {
   title: "More Songs About Buildings and Food",
@@ -47,9 +48,11 @@ const album3 = {
 // 3. Access album2's formats array and use an array method to add "LP" to
 //    album3's formats
 // Check out the Array.push method!
-
+let formats = album2.albumDetails.formats;
+album3.albumDetails.formats.push(formats);
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
+album3.released = new Date("August 3, 1979");
 
 const album4 = {
   title: "Remain in Light",
@@ -60,6 +63,7 @@ const album4 = {
 };
 
 // 5. Add the label "Sire" to album4's details
+album4.albumDetails.label = "Sire";
 
 const album5 = {
   title: "Speaking in Tongues",
@@ -70,6 +74,7 @@ const album5 = {
 };
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
+album5.albumDetails.formats = ["CD", "Cassette", "LP"];
 
 const album6 = {
   title: "Little Creatures",
@@ -82,12 +87,13 @@ const album6 = {
 
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
+album6.albumDetails.labels[1] = album6.albumDetails.labels[1].toUpperCase();
 
 const album7 = {
   title: "True Stories",
   albumDetails: {
     released: new Date("October 7, 1986"),
-    labels:   "Sire, EMI",
+    albumDetails:   "Sire, EMI",
     formats:  ["CD", "cassette", "LP"]
   }
 };
@@ -95,6 +101,7 @@ const album7 = {
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
+album7.albumDetails.labels = album7.albumDetails.labels.split(" , ");
 
 const album8 = {
   title: "Naked",
@@ -121,17 +128,21 @@ const talkingHeadsAlbums = [
 /////////////////////////////////////////////////////
 
 // 1. Create an object literal called `band`.
-
+let band = {
+};
 // 2. Give it the property `name` and set it to "Talking Heads"
-
+band.name = "Talking Heads";
 // 3. Give it the property `members` and set it to an array with a single
 //    string, "David Byrne", in it.
-
+band.members = ["David Byrne"];
 // 4. Give it the property `albums` and set it to the array stored in the
 //    variable talkingHeadsAlbums
-
+band.albums = talkingHeadsAlbums;
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
+band.members.push("Tiny Weymouth");
+band.members.push("Chris Franz");
+band.members.push("Jerry Harrison");
 
 ////////////////////////////////////////////////
 // Part 4: Conditional Logic
@@ -141,12 +152,21 @@ const talkingHeadsAlbums = [
 //    if the Talking Heads have 6 albums or more. Otherwise, console.log
 //    "Talking heads didn't have much output." Use the array of albums
 //    talkingHeadsAlbums above.
-
+if (talkingHeadsAlbums.length >= 6) {
+  console.log("Talking Heads were a prolific band");
+} else {
+  console.log("Talking heads didn't have much output.");
+}
 // 2. Write a conditional to check if the number of albums in
 //    talkingHeadsAlbums is odd or even, and then console.log
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
-
+let numbAlb = talkingHeadsAlbums.length;
+if (talkingHeadsAlbums.length % 2 == 0) {
+  console.log("The number" + numbAlb + "is odd");
+} else {
+  console.log("The number" + numbAlb + "is even");
+}
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
 //    console.log one of:
@@ -156,7 +176,17 @@ const talkingHeadsAlbums = [
 //    - "The number Y is not divisible by 2 or 3",
 //
 //    with Y being the number of albums.
+let numbAlb = talkingHeadsAlbums.length;
 
+if (numbAlb % 2 === 0 && numbAlb % 3 === 0) {
+    console.log("The number" + numbAlb + "is divisible by 2 and 3");
+} else if (numbAlb % 2 === 0) {
+  console.log("The number" + numbAlb + "is divisible by 2");
+} else if (numbAlb % 3 === 0) {
+  console.log("The number" + numbAlb + "is divisible by 3");
+} else if (numbAlb === 0) {
+  console.log("The number" + numbTAlb + "is not divisible by 2 and 3");
+}
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 
@@ -165,14 +195,26 @@ const talkingHeadsAlbums = [
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
-
+for (album of talkingHeadsAlbums) {
+console.log(album.title);
+}
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
-
+let sireTally = 0;
+for (album of talkingHeadsAlbums) {
+  if(album.albumDetails.label === "Sire") {
+    sireTally++;
+} 
+if (album.albumDetails.labels) {
+  if (album.albumDetails.labels.includes("Sire")) {
+      sireTally++;
+  }
+}
+}
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
 /////////////////////////////////////////////////////
@@ -215,6 +257,24 @@ const tickets = [
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ];
 
+for(guest of tickets) {
+  let welcomeMsg = `Welcome, ${guest.name}!`;
+
+  if(guest.seats === 1) {
+      welcomeMsg += " You may sit anywhere"
+  } else {
+      welcomeMsg += " You and your party may sit anywhere"
+  }
+
+  if(guest.type === 'premium') {
+      welcomeMsg += ` in the first 3 rows of the ${guest.section} section.`
+  } else {
+      welcomeMsg += ` except the first 3 rows of the ${guest.section} section.`
+  }
+
+  welcomeMsg += "\nPlease be sure to leave no seats between you."
+  console.log(welcomeMsg);
+
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
 //    "The Wailing Deads" (known as "The Walking Deads" until they received
@@ -243,14 +303,48 @@ const tickets = [
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
 const tickets = [
-  {amount: 50.00, discount: false, zombie: true},
-  {amount: 60.00, discount: true,  zombie: false},
-  {amount: 50.00},
-  {amount: 65.00, discount: true,  zombie: true},
-  {amount: 90.00, discount: false},
-  {amount: 50.00, discount: true,  zombie: false},
-  {amount: 50.00, zombie:   true},
-  {amount: 80.00, discount: true},
-  {amount: 90.00},
-  {amount: 50.00, discount: true}
+  {amount: 50.00, discount: false, zombie: true}, // STANDARD $10 DRINKS
+  {amount: 60.00, discount: true,  zombie: false}, // INVALID
+  {amount: 50.00},  // STANDARD
+  {amount: 65.00, discount: true,  zombie: true}, // PREMIER $20 DRINKS
+  {amount: 90.00, discount: false}, // PREMIER PLUS
+  {amount: 50.00, discount: true,  zombie: false}, // STANDARD $10 DRINKS
+  {amount: 50.00, zombie:   true}, // STANDARD $10 DRINKS
+  {amount: 80.00, discount: true}, // PREMIER PLUS
+  {amount: 90.00}, // PREMIER PLUS
+  {amount: 50.00, discount: true} // STANDARD $10 DRINKS
 ];
+
+for(ticket of tickets) {
+    let str = "";
+    let drinkCredit = 0;
+
+    if(ticket.discount) {
+        drinkCredit += 10;
+    }
+    if(ticket.zombie) {
+        drinkCredit += 10;
+    }
+
+    if(ticket.amount == 50) {
+        str = "STANDARD";
+    } else if(ticket.amount == 65) {
+        str = "PREMIER";
+    } else if (ticket.amount == 90) {
+        console.log("PREMIER PLUS");
+        continue; 
+    } else if (ticket.amount == 80 && ticket.discount) {
+        console.log("PREMIER PLUS");
+        continue;
+    } else {
+        console.log("ERROR: INVALID TICKET");
+        continue;
+    }
+
+    if(drinkCredit > 0) {
+        str += ` $${drinkCredit} DRINKS`
+    }
+
+    console.log(str);
+}
+}
