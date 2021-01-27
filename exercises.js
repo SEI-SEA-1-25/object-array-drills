@@ -177,10 +177,22 @@ band.members.push("Tiny Weymouth", "Chris Franz", "Jerry Harrison");
 //    "Talking heads didn't have much output." Use the array of albums
 //    talkingHeadsAlbums above.
 
+if (talkingHeadsAlbums >= 6) {
+  console.log("Talking Heads were a prolific band");
+} else {
+  console.log("Talking heads didn't have much output.");
+}
+
 // 2. Write a conditional to check if the number of albums in
 //    talkingHeadsAlbums is odd or even, and then console.log
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
+
+if(talkingHeadsAlbums.length % 2 === 0) {
+  console.log(`The number ${talkingHeadsAlbums.length} is even`);
+} else {
+  console.log(`The number ${talkingHeadsAlbums.length} is odd`);
+}
 
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
@@ -191,6 +203,42 @@ band.members.push("Tiny Weymouth", "Chris Franz", "Jerry Harrison");
 //    - "The number Y is not divisible by 2 or 3",
 //
 //    with Y being the number of albums.
+
+var Y = talkingHeadsAlbums.length
+// var Y = 0;
+// var Y = 1;
+// var Y = 2;
+// var Y = 6;
+// var Y = 7;
+// var Y = 9;
+
+// if (Y % 2 === 0) {
+//   console.log(`The number ${Y} is divisible by 2`);
+// } else if (Y % 3 === 0) {
+//   console.log(`The number ${Y} is divisible by 3`);
+// } else if (Y % 2 === 0 && Y % 3 === 0) {
+//   console.log(`The number ${Y} is divisible by 2 and 3`);
+// } else if (Y === 0){
+//   console.log(`Y is 0`);
+// } else {
+//   console.log(`The number ${Y} is not divisible by 2 or 3`);
+// }
+
+if (Y === 0){
+  console.log(`Y is 0`);
+}
+else if (Y % 2 === 0 && Y % 3 === 0) {
+  console.log(`The number ${Y} is divisible by 2 and 3`);
+}
+else if (Y % 2 === 0) {
+  console.log(`The number ${Y} is divisible by 2`);
+} 
+else if (Y % 3 === 0) {
+  console.log(`The number ${Y} is divisible by 3`);
+} 
+else {
+  console.log(`The number ${Y} is not divisible by 2 or 3`);
+}
 
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
