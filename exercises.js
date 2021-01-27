@@ -273,7 +273,7 @@ let sireTally = 0;
 for (let i = 0; i < band.albums[0].length; i++) {
   if (
     band.albums[0][i].albumDetails.label === "Sire" ||
-    band.albums[0][i].albumDetails.labels === "Sire" // not working //
+    band.albums[0][i].albumDetails.label === "Sire" // not working //
   ) {
     sireTally += 1;
   }
@@ -326,6 +326,34 @@ const tickets = [
   { name: "Warren Christopher", section: "right", type: "standard", seats: 1 },
   { name: "Bob Dole", section: "center", type: "premium", seats: 3 },
 ];
+
+for (let i = 0; i < tickets.length; i++) {
+  // console.log(tickets[i]);
+  // console.log(tickets[0].type);
+  if (tickets[i].type === "premium" && tickets[i].section == "center") {
+    console.log(
+      `Welcome, ${tickets[i].name}! You may sit in the first 3 rows of the ${tickets[i].section} section`
+    );
+  } else if (tickets[i].type === "premium" && tickets[i].section == "left") {
+    console.log(
+      `Welcome, ${tickets[i].name}! You may sit in the first 3 rows of the ${tickets[i].section} section`
+    );
+  } else if (tickets[i].type === "standard" && tickets[i].section == "left") {
+    console.log(
+      `Welcome, ${tickets[i].name}! You and your party may sit anywhere except first 3 rows of the ${tickets[i].section} section. Please be sure to leave no seats between you.`
+    );
+  } else if (tickets[i].type === "standard" && tickets[i].section == "right") {
+    console.log(
+      `Welcome, ${tickets[i].name}! You and your party may sit anywhere except first 3 rows of the ${tickets[i].section} section. Please be sure to leave no seats between you.`
+    );
+  } else if (tickets[i].type === "standard" && tickets[i].section == "center") {
+    console.log(
+      `Welcome, ${tickets[i].name}! You and your party may sit anywhere except first 3 rows of the ${tickets[i].section} section. Please be sure to leave no seats between you.`
+    );
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////////
 
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
