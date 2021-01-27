@@ -288,6 +288,17 @@ const tickets = [
   {name: "Warren Christopher",    section: "right",  type: "standard", seats: 1},
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ];
+for(guest of tickets) {
+  let welcomeMessage = `Welcome ${guest.name} to DAR Constitutional Hall. `;
+  if (guest.type === "premium") {
+    welcomeMessage += `You may sit anywhere in the ${guest.section} section, incuding the first three rows! `
+  }
+  if (guest.type === "standard") {
+    welcomeMessage += `You may sit may sit anywhere in the ${guest.section} section, except first 3 rows. `
+  }
+  welcomeMessage += `Please be sure to leave no seats between you. `
+  console.log(welcomeMessage);
+}
 
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
@@ -316,7 +327,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-const tickets2 = [
+const ticketsTwo = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
@@ -329,3 +340,28 @@ const tickets2 = [
   {amount: 50.00, discount: true}
 ] ;
 
+for (ticket of ticketsTwo) {
+  let ticketMessage = "";
+  let drinkTicket = 0;
+  if (ticket.amount === 50) {
+    welcomeMessage = "STANDARD TICKET"
+  } else if (ticket.amount === 65) {
+    welcomeMessage = "PREMIER TICKET"
+  } else if (ticket.amount === 90) {
+    welcomeMessage = "PREMIER PLUS TICKET"
+  } else if (ticket.amount === 80 && ticket.discount === true) {
+    welcomeMessage = "PREMIER PLUS TICKET"
+  } else {
+    welcomeMessage = "ERROR: INVALID TICKET"
+  }
+  if(ticket.discount) {
+    drinkTicket += 10;
+  }
+  if(ticket.zombie) {
+      drinkTicket += 10;
+  }
+  if (drinkTicket > 0) {
+    welcomeMessage += ` with a $${drinkTicket} drink ticket!`
+  }
+  console.log(welcomeMessage)
+};
