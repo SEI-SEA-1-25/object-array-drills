@@ -257,28 +257,34 @@ if (talkingHeadsAlbums.length % 2 === 1) {
 //    - "The number Y is not divisible by 2 or 3",
 //
 //    with Y being the number of albums.
+var albumNum = talkingHeadsAlbums.length;
 
-/*
-if ((talkingHeadsAlbums.length / 2) % 0) {
-  console.log("The number Y is divisible by 2");
-} else if ((talkingHeadsAlbums.length / 3) % 0) {
-  console.log("The number Y is divisible by 3");
-}*/
 
-if (talkingHeadsAlbums.length % 2 === 0 || talkingHeadsAlbums.length % 3 === 0 ) {
-  console.log(`The number ${talkingHeadsAlbums.length} is divisible by 2 or 3`);
-} 
+if(albumNum % 2 === 0 && albumNum % 3 === 0) {
+    console.log(`The number ${albumNum} is divisible by 2 and 3`);
+} else if(albumNum % 3 === 0) {
+    console.log(`The number ${albumNum} is divisible by 3`);
+  } else if(albumNum % 2 === 0) {
+      console.log(`The number ${albumNum} is divisible by 2`);
+    } else {
+        console.log(`The number ${albumNum} is not divisible by 2 or 3`);
+      }
 
 
 
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 let randomNum = 0; //checked all numbers
-if (randomNum % 2 === 0 || randomNum % 3 === 0 ) {
-    console.log(`The number ${randomNum} is divisible by 2 or 3`);
-} else {
-    console.log(`The number ${randomNum} is not divisible by 2 or 3`);
-  }
+
+  if(randomNum % 2 === 0 && randomNum % 3 === 0) {
+    console.log(`The number ${randomNum} is divisible by 2 and 3`);
+} else if(randomNum % 3 === 0) {
+    console.log(`The number ${randomNum} is divisible by 3`);
+  } else if(randomNum % 2 === 0) {
+      console.log(`The number ${randomNum} is divisible by 2`);
+    } else {
+        console.log(`The number ${randomNum} is not divisible by 2 or 3`);
+      }
 
 
 
