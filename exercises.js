@@ -21,10 +21,18 @@ const album1 = {
   }
 };
 
+
+
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 
+let sensibleVariable = album1.albumDetails.label;
+console.log(sensibleVariable);
+
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
+album1.title = "Talking Heads: 77";
+
+console.log(album1.title);
 
 const album2 = {
   title: "More Songs About Buildings and Food",
@@ -242,7 +250,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-const tickets = [
+/*const tickets = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
@@ -253,4 +261,4 @@ const tickets = [
   {amount: 80.00, discount: true},
   {amount: 90.00},
   {amount: 50.00, discount: true}
-];
+];*/
