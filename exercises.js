@@ -295,7 +295,17 @@ for(album of talkingHeadsAlbums){
 }
 */
 
-
+var sireTally = 0;
+for (album of talkingHeadsAlbums) {
+  if (album.albumDetails.label === "Sire") {
+    sireTally++;
+  } if(album.albumDetails.labels) {
+    if(album.albumDetails.labels.includes("Sire")) {
+        sireTally++;
+    }
+  }
+};
+console.log(sireTally);
 
 
 
@@ -332,6 +342,7 @@ for(album of talkingHeadsAlbums){
 //    "Welcome, Newt Gingrich! You and your party may sit anywhere except first 3 rows of the center section.
 //     Please be sure to leave no seats between you."
 
+
 const tickets = [
   {name: "Boutros Boutros-Ghali", section: "center", type: "premium",  seats: 1},
   {name: "Ann Richards",          section: "left",   type: "premium",  seats: 2},
@@ -341,7 +352,18 @@ const tickets = [
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ];
 
-// 2. There is a concert at the LA County Fairgrounds by the Southland's
+for(guest of tickets){
+  if(guest.type === "premium"){
+    console.log(`Welcome, ${guest.name}! You may sit anywhere in the first 3 rows of the `)
+  }
+
+
+}
+
+
+
+
+//2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
 //    "The Wailing Deads" (known as "The Walking Deads" until they received
 //    a cease-and-desist). Ticket prices are $50, $65, or $90 for
