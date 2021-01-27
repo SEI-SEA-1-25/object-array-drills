@@ -249,12 +249,32 @@ else {
 
 // 1. Use a for loop to print out the name of each Talking Heads album
 
+for(album of talkingHeadsAlbums) {
+   console.log(album.title);
+}
+
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
+
+var sireTally = 0;
+
+for(album of talkingHeadsAlbums) {
+  if(album.albumDetails.label ==  'Sire') {
+      sireTally++;
+  }
+  if(album.albumDetails.labels) {
+      if(album.albumDetails.labels.includes('Sire')) {
+          sireTally++;
+      }
+  }
+}
+
+console.log('sire count = ' + sireTally); // NOT WORKING...
+
 
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
