@@ -21,6 +21,13 @@ const album1 = {
   }
 };
 
+var labelName = album1.albumDetails.label;
+album1.title = "Talking Heads: 77";
+
+// console.log(labelName)
+// console.log(album1.title)
+
+
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 
@@ -35,6 +42,7 @@ const album2 = {
   }
 };
 
+
 const album3 = {
   title: "Fear of Music",
   albumDetails: {
@@ -43,6 +51,9 @@ const album3 = {
     formats:  ["Cassette"]
   }
 };
+
+album3.albumDetails.formats.push(album2.albumDetails.formats[0]);
+album3.albumDetails.released = new Date ("August 3, 1979");
 
 // 3. Access album2's formats array and use an array method to add "LP" to
 //    album3's formats
@@ -59,6 +70,9 @@ const album4 = {
   }
 };
 
+album4.albumDetails.label = "sire";
+// console.log(album4);
+
 // 5. Add the label "Sire" to album4's details
 
 const album5 = {
@@ -68,6 +82,9 @@ const album5 = {
     label:    "Sire"
   }
 };
+
+album5.albumDetails.formats = ["CD", "Cassette", "LP"];
+// console.log(album5);
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
 
@@ -80,6 +97,10 @@ const album6 = {
   }
 };
 
+album6.albumDetails.labels[1] = album6.albumDetails.labels[1].toUpperCase();
+// console.log(album6.albumDetails.labels[1]);
+
+
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
 
@@ -91,6 +112,8 @@ const album7 = {
     formats:  ["CD", "cassette", "LP"]
   }
 };
+
+album7.albumDetails.labels = album7.albumDetails.labels.split(",");
 
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
@@ -242,7 +265,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-const tickets = [
+const prices = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
