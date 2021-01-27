@@ -21,6 +21,7 @@ const album1 = {
   }
 };
 
+
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 const label = album1.albumDetails.label;
