@@ -23,8 +23,11 @@ const album1 = {
 
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
-
+let recordLabel = album1.albumDetails.label;
+console.log(recordLabel);
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
+album1.title = ("Talking Heads: 77");
+console.log(album1.title);
 
 const album2 = {
   title: "More Songs About Buildings and Food",
@@ -48,8 +51,19 @@ const album3 = {
 //    album3's formats
 // Check out the Array.push method!
 
+let formatAdd = album2.albumDetails.formats[0];
+
+album3.albumDetails.formats.push(formatAdd);
+
+console.log(album3.albumDetails.formats);
+
+
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
+
+album3.albumDetails.released = new Date("August 3, 1979");
+
+console.log(album3.albumDetails.released);
 
 const album4 = {
   title: "Remain in Light",
@@ -59,7 +73,15 @@ const album4 = {
   }
 };
 
+
+
 // 5. Add the label "Sire" to album4's details
+
+album4.albumDetails.label = "Sire";
+
+console.log(album4.albumDetails);
+
+
 
 const album5 = {
   title: "Speaking in Tongues",
@@ -70,6 +92,11 @@ const album5 = {
 };
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
+
+album5.albumDetails.formats = ["CD", "Cassette", "LP"];
+
+console.log(album5.albumDetails.formats);
+
 
 const album6 = {
   title: "Little Creatures",
@@ -83,6 +110,10 @@ const album6 = {
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
 
+album6.albumDetails.labels[1] = album6.albumDetails.labels[1].toUpperCase();
+
+console.log(album6.albumDetails.labels);
+
 const album7 = {
   title: "True Stories",
   albumDetails: {
@@ -95,6 +126,12 @@ const album7 = {
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
+
+album7.albumDetails.labels = album7.albumDetails.labels.split(', ');
+
+console.log(album7.albumDetails.labels);
+
+
 
 const album8 = {
   title: "Naked",
@@ -121,17 +158,20 @@ const talkingHeadsAlbums = [
 /////////////////////////////////////////////////////
 
 // 1. Create an object literal called `band`.
-
+let band = {};
 // 2. Give it the property `name` and set it to "Talking Heads"
-
+band.name = "Talking Heads";
 // 3. Give it the property `members` and set it to an array with a single
 //    string, "David Byrne", in it.
-
+band.members = ["David Byrne"];
 // 4. Give it the property `albums` and set it to the array stored in the
 //    variable talkingHeadsAlbums
-
+band.albums = talkingHeadsAlbums;
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
+band.members.push("Tiny Weymouth", "Chris Franz", "Jerry Harrison");
+
+console.log(band.members);
 
 ////////////////////////////////////////////////
 // Part 4: Conditional Logic
@@ -142,10 +182,24 @@ const talkingHeadsAlbums = [
 //    "Talking heads didn't have much output." Use the array of albums
 //    talkingHeadsAlbums above.
 
+if(talkingHeadsAlbums.length >= 6){
+  console.log("Talking Heads were a prolific band");
+} else {
+  console.log("Talking heads didn't have much output.");
+}
+
 // 2. Write a conditional to check if the number of albums in
 //    talkingHeadsAlbums is odd or even, and then console.log
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
+
+let albums = (talkingHeadsAlbums.length % 2);
+
+if(albums === 0){
+  console.log("The number" + talkingHeadsAlbums.length + "is even");
+} else {
+  console.log("The number " + talkingHeadsAlbums.length + " is odd");
+}
 
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
@@ -157,8 +211,38 @@ const talkingHeadsAlbums = [
 //
 //    with Y being the number of albums.
 
+let albumCount = talkingHeadsAlbums.length;
+
+if(albumCount % 2 === 0){
+  console.log("The number " + albumCount + " is divisible by 2");
+}else if (albumCount % 3 === 0){
+console.log("The number " + albumCount + " is divisible by 3");
+}else if((albumCount % 2 === 0) && (albumCount % 3 === 0)){
+  console.log("The number " + albumCount + " is divisible by 2 and 3");
+}else{
+  console.log("The number " + albumCount + " is not divisible by 2 or 3");
+}
+
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
+
+let numCheck = [0, 1, 2, 6, 7, 9];
+
+for(let i = 0; i < numCheck.length; i++)
+{
+if(numCheck[i] === 0){
+  console.log("The number 0 is divisible by 2 and 3");
+} else if((numCheck[i] % 2 === 0) && (numCheck[i]% 3 === 0)){
+  console.log("The number " + numCheck[i] + " is divisible by 2 and 3");
+}else if (numCheck[i] % 3 === 0){
+console.log("The number " + numCheck[i] + " is divisible by 3");
+}else if(numCheck[i] % 2 === 0){
+  console.log("The number " + numCheck[i] + " is divisible by 2");
+}else{
+  console.log("The number " + numCheck[i] + " is not divisible by 2 or 3");
+}
+}
+
 
 /////////////////////////////////////////////////////
 // Part 5: For Loops
@@ -166,12 +250,64 @@ const talkingHeadsAlbums = [
 
 // 1. Use a for loop to print out the name of each Talking Heads album
 
+let albumArr = talkingHeadsAlbums.length;
+
+for (let i =0; i < albumArr; i++){
+  console.log(talkingHeadsAlbums[i])
+};
+
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
+/*
+let sireTally = 0;
+
+let albumVar = talkingHeadsAlbums.length;
+
+for (let i = 0; i < albumVar; i++){
+  
+  for ((album of talkingHeadsAlbums) === album.label["Sire"] ){
+    sireTally++;
+    console.log(sireTally);
+  }else if (talkingHeadsAlbums[i].albumDetails.label === "Sire"){
+    sireTally++;
+    console.log(sireTally);
+  }else{
+    console.log(sireTally);
+  }
+}
+
+let sireTally = 0;
+
+for(album of talkingHeadsAlbums){
+  if(album.labels === talkingHeadsAlbums.albumDetails.labels["Sire"]){
+    sireTally++;
+    console.log(sireTally);
+  }else if (album.label === "Sire"){
+    sireTally++;
+    console.log(sireTally);
+  }else{
+    console.log(sireTally);
+  }
+}
+*/
+
+var sireTally = 0;
+for (album of talkingHeadsAlbums) {
+  if (album.albumDetails.label === "Sire") {
+    sireTally++;
+  } if(album.albumDetails.labels) {
+    if(album.albumDetails.labels.includes("Sire")) {
+        sireTally++;
+    }
+  }
+};
+console.log(sireTally);
+
+
 
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
@@ -206,6 +342,7 @@ const talkingHeadsAlbums = [
 //    "Welcome, Newt Gingrich! You and your party may sit anywhere except first 3 rows of the center section.
 //     Please be sure to leave no seats between you."
 
+
 const tickets = [
   {name: "Boutros Boutros-Ghali", section: "center", type: "premium",  seats: 1},
   {name: "Ann Richards",          section: "left",   type: "premium",  seats: 2},
@@ -215,7 +352,18 @@ const tickets = [
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ];
 
-// 2. There is a concert at the LA County Fairgrounds by the Southland's
+for(guest of tickets){
+  if(guest.type === "premium"){
+    console.log(`Welcome, ${guest.name}! You may sit anywhere in the first 3 rows of the `)
+  }
+
+
+}
+
+
+
+
+//2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
 //    "The Wailing Deads" (known as "The Walking Deads" until they received
 //    a cease-and-desist). Ticket prices are $50, $65, or $90 for
@@ -242,7 +390,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-const tickets = [
+const tickets2 = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
