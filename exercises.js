@@ -226,14 +226,27 @@ if (numberOfAlbums === 0){
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
-
+for (i = 0; i < talkingHeadsAlbums.length; i++) {
+  console.log(talkingHeadsAlbums[i])
+};
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
-
+//I couldn't figure out the second half of the for in & includes
+var sireTally = 0;
+for (album of talkingHeadsAlbums) {
+  if (album.albumDetails.label === "Sire") {
+    sireTally++;
+  } if(album.albumDetails.labels) {
+    if(album.albumDetails.labels.includes("Sire")) {
+        sireTally++;
+    }
+  }
+};
+console.log(sireTally);
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
 /////////////////////////////////////////////////////
@@ -303,7 +316,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-/*const tickets = [
+const tickets2 = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
@@ -314,4 +327,5 @@ const tickets = [
   {amount: 80.00, discount: true},
   {amount: 90.00},
   {amount: 50.00, discount: true}
-];*/
+] ;
+
