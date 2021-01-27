@@ -174,10 +174,21 @@ console.log(band);
 //    "Talking heads didn't have much output." Use the array of albums
 //    talkingHeadsAlbums above.
 
+if (talkingHeadsAlbums.length >= 6) {
+  console.log("Talking Heads were a prolific band!")
+} else {
+  console.log("Talking heads didn't have much output.")
+};
+
 // 2. Write a conditional to check if the number of albums in
 //    talkingHeadsAlbums is odd or even, and then console.log
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
+if (talkingHeadsAlbums.length % 2 === 0) {
+  console.log(`The number ${talkingHeadsAlbums.length} is even.`)
+} else {
+  console.log(`The number ${talkingHeadsAlbums.length} is odd.`)
+}
 
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
@@ -188,6 +199,24 @@ console.log(band);
 //    - "The number Y is not divisible by 2 or 3",
 //
 //    with Y being the number of albums.
+let numberOfAlbums = talkingHeadsAlbums.length;
+//let numberOfAlbums = 0;
+//let numberOfAlbums = 1;
+//let numberOfAlbums = 2;
+//let numberOfAlbums = 6;
+//let numberOfAlbums = 7;
+//let numberOfAlbums = 9;
+if (numberOfAlbums === 0){
+  console.log(`The number ${numberOfAlbums} is not divisible by 2 or 3`)
+}  else if (numberOfAlbums % 2 === 0) {
+  console.log(`The number ${numberOfAlbums} is divisible by 2`)
+} else if (numberOfAlbums % 3 === 0) {
+  console.log(`The number ${numberOfAlbums} is divisible by 3`)
+} else if (numberOfAlbums % 2 === 0 && numberOfAlbums % 3 === 0) {
+  console.log(`The number ${numberOfAlbums} is divisible by 2 and 3`)
+} else {
+  console.log(`The number ${numberOfAlbums} is not divisible by 2 or 3`)
+};
 
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
