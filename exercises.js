@@ -156,6 +156,18 @@ const talkingHeadsAlbums = [
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
 
+const band = {};
+
+band.names = "Talking geads";
+
+band.members = ["David Byrne"];
+
+band.albums = talkingHeadsAlbums;
+
+band.members.push("Tiny Weymouth", "Chris Franz", "Jerry Harrison");
+
+// console.log(band.members);
+
 ////////////////////////////////////////////////
 // Part 4: Conditional Logic
 ////////////////////////////////////////////////
