@@ -181,12 +181,12 @@ if (talkingHeadsAlbums.length >= 6) {
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
 
-const numOfAlbums = talkingHeadsAlbums.length;
+const numberOfAlbums = talkingHeadsAlbums.length;
 
-if (numOfAlbums % 2 === 0) {
-  console.log(`The number ${numOfAlbums} is even`);
+if (numberOfAlbums % 2 === 0) {
+  console.log(`The number ${numberOfAlbums} is even`);
 } else {
-  console.log(`The number ${numOfAlbums} is odd`);
+  console.log(`The number ${numberOfAlbums} is odd`);
 }
 
 // 3. Write conditionals to check if the number of albums in
@@ -199,12 +199,12 @@ if (numOfAlbums % 2 === 0) {
 //
 //    with Y being the number of albums.
 
-if (numOfAlbums % 2 === 0 && numOfAlbums % 3 === 0) {
-  console.log(`The number ${numOfAlbums} is divisible by 2 and 3`);
-} else if (numOfAlbums % 3 === 0) {
+if (numberOfAlbums % 2 === 0 && numberOfAlbums % 3 === 0) {
+  console.log(`The number ${numberOfAlbums} is divisible by 2 and 3`);
+} else if (numberOfAlbums % 3 === 0) {
   console.log(`The number Y is divisible by 3`);
-} else if (numOfAlbums % 2 === 0) {
-  console.log(`The number ${numOfAlbums} is divisible by 2`);
+} else if (numberOfAlbums % 2 === 0) {
+  console.log(`The number ${numberOfAlbums} is divisible by 2`);
 } else {
   console.log(`The number Y is not divisible by 2 or 3`);
 }
@@ -220,11 +220,15 @@ if (numOfAlbums % 2 === 0 && numOfAlbums % 3 === 0) {
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
+/*
+for(album of talkingHeadsAlbums) {
+  console.log(album.title);
+}
+*/
 
 for(album of talkingHeadsAlbums) {
   console.log(album.title);
 }
-
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
@@ -275,7 +279,7 @@ for(album of talkingHeadsAlbums) {
 //    "Welcome, Newt Gingrich! You and your party may sit anywhere except first 3 rows of the center section.
 //     Please be sure to leave no seats between you."
 
-const tickets = [
+const byrneTickets = [
   {name: "Boutros Boutros-Ghali", section: "center", type: "premium",  seats: 1},
   {name: "Ann Richards",          section: "left",   type: "premium",  seats: 2},
   {name: "George Will",           section: "left",   type: "standard", seats: 2},
@@ -283,6 +287,23 @@ const tickets = [
   {name: "Warren Christopher",    section: "right",  type: "standard", seats: 1},
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ];
+
+for (guest of byrneTickets) {
+  let guestMessage = `Welcome ${guest.name}!`;
+  if (guest.seats === 1) {
+    guestMessage += "You may sit anywhere"
+  } else {
+    guestMessage += "You and your party may sit anywhere"
+  }
+  
+  if (guest.type === 'premium') {
+    guestMessage += `in the first 3 rows of the ${guest.section} section`
+  } else {
+    guestMessage += ` except first 3 rows of the ${guest.section} section.`
+  }
+  guestMessage += "\nPlease be sure to leave no seats between you."
+  console.log(guestMessage);
+}
 
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
@@ -311,7 +332,6 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-/*
 const tickets = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
@@ -324,4 +344,37 @@ const tickets = [
   {amount: 90.00},
   {amount: 50.00, discount: true}
 ];
-*/
+
+for(ticket of tickets) {
+  let ticketMessage = "";
+  let drinkVoucher = 0;
+
+  if(ticket.discount) {
+      drinkVoucher += 10;
+  }
+  if(ticket.zombie) {
+      drinkVoucher += 10;
+  }
+
+  if(ticket.amount == 50) {
+      ticketMessage = "STANDARD";
+  } else if(ticket.amount == 65) {
+      ticketMessage = "PREMIER";
+  } else if (ticket.amount == 90) {
+      console.log("PREMIER PLUS");
+      continue;
+  } else if (ticket.amount == 80 && ticket.discount) {
+      console.log("PREMIER PLUS");
+      continue;
+  } else {
+      console.log("ERROR: INVALID TICKET");
+      continue;
+  }
+
+  // Append drink credits to end of string
+  if(drinkVoucher > 0) {
+      ticketMessage += ` $${drinkVoucher} DRINKS`
+  }
+
+  console.log(ticketMessage);
+}
