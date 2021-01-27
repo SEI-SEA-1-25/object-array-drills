@@ -28,6 +28,8 @@ const label = album1.albumDetails.label;
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
 album1.title = "Talking Heads: 77";
 
+
+
 const album2 = {
   title: "More Songs About Buildings and Food",
   albumDetails: {
@@ -48,7 +50,7 @@ const album3 = {
 
 // 3. Access album2's formats array and use an array method to add "LP" to
 //    album3's formats
-album3.albumDetails.formats.push(album2.albumDetails.formats[0]);
+albumDalbum3etails.formats.push(album2.albumDetails.formats[0]);
 
 // 4. Change the release date of album3 from a string into a Date object
 album3.released = new Date('August 3, 1979');
