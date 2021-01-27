@@ -199,12 +199,12 @@ if (numOfAlbums % 2 === 0) {
 //
 //    with Y being the number of albums.
 
-if (numOfAlbums % 2 === 0) {
-  console.log(`The number ${numOfAlbums} is divisible by 2`);
+if (numOfAlbums % 2 === 0 && numOfAlbums % 3 === 0) {
+  console.log(`The number ${numOfAlbums} is divisible by 2 and 3`);
 } else if (numOfAlbums % 3 === 0) {
   console.log(`The number Y is divisible by 3`);
-} else if (numOfAlbums % 2 === 0 && numOfAlbums % 3 === 0) {
-  console.log(`The number ${numOfAlbums} is divisible by 2 and 3`);
+} else if (numOfAlbums % 2 === 0) {
+  console.log(`The number ${numOfAlbums} is divisible by 2`);
 } else {
   console.log(`The number Y is not divisible by 2 or 3`);
 }
@@ -212,6 +212,7 @@ if (numOfAlbums % 2 === 0) {
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 
+//it did :)
 
 
 /////////////////////////////////////////////////////
@@ -220,12 +221,26 @@ if (numOfAlbums % 2 === 0) {
 
 // 1. Use a for loop to print out the name of each Talking Heads album
 
+for(album of talkingHeadsAlbums) {
+  console.log(album.title);
+}
+
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
+let sireTally = 0;
+for(album of talkingHeadsAlbums) {
+  if(album.albumDetails.label === "Sire") {
+      sireTally++;
+  } if(album.albumDetails.labels) {
+    if(album.albumDetails.labels.includes("Sire")) {
+        sireTally++;
+      }
+    }
+}
 
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
