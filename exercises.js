@@ -21,6 +21,13 @@ const album1 = {
   }
 };
 
+var labelName = album1.albumDetails.label;
+album1.title = "Talking Heads: 77";
+
+// console.log(labelName)
+// console.log(album1.title)
+
+
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 
@@ -35,6 +42,7 @@ const album2 = {
   }
 };
 
+
 const album3 = {
   title: "Fear of Music",
   albumDetails: {
@@ -43,6 +51,9 @@ const album3 = {
     formats:  ["Cassette"]
   }
 };
+
+album3.albumDetails.formats.push(album2.albumDetails.formats[0]);
+album3.albumDetails.released = new Date ("August 3, 1979");
 
 // 3. Access album2's formats array and use an array method to add "LP" to
 //    album3's formats
@@ -59,6 +70,9 @@ const album4 = {
   }
 };
 
+album4.albumDetails.label = "sire";
+// console.log(album4);
+
 // 5. Add the label "Sire" to album4's details
 
 const album5 = {
@@ -68,6 +82,9 @@ const album5 = {
     label:    "Sire"
   }
 };
+
+album5.albumDetails.formats = ["CD", "Cassette", "LP"];
+// console.log(album5);
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
 
@@ -80,6 +97,10 @@ const album6 = {
   }
 };
 
+album6.albumDetails.labels[1] = album6.albumDetails.labels[1].toUpperCase();
+// console.log(album6.albumDetails.labels[1]);
+
+
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
 
@@ -91,6 +112,8 @@ const album7 = {
     formats:  ["CD", "cassette", "LP"]
   }
 };
+
+album7.albumDetails.labels = album7.albumDetails.labels.split(",");
 
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
@@ -133,6 +156,18 @@ const talkingHeadsAlbums = [
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
 
+const band = {};
+
+band.names = "Talking geads";
+
+band.members = ["David Byrne"];
+
+band.albums = talkingHeadsAlbums;
+
+band.members.push("Tiny Weymouth", "Chris Franz", "Jerry Harrison");
+
+// console.log(band.members);
+
 ////////////////////////////////////////////////
 // Part 4: Conditional Logic
 ////////////////////////////////////////////////
@@ -142,10 +177,22 @@ const talkingHeadsAlbums = [
 //    "Talking heads didn't have much output." Use the array of albums
 //    talkingHeadsAlbums above.
 
+if (talkingHeadsAlbums >= 6) {
+  console.log("Talking Heads were a prolific band");
+} else {
+  console.log("Talking heads didn't have much output.");
+}
+
 // 2. Write a conditional to check if the number of albums in
 //    talkingHeadsAlbums is odd or even, and then console.log
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
+
+if(talkingHeadsAlbums.length % 2 === 0) {
+  console.log(`The number ${talkingHeadsAlbums.length} is even`);
+} else {
+  console.log(`The number ${talkingHeadsAlbums.length} is odd`);
+}
 
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
@@ -157,6 +204,42 @@ const talkingHeadsAlbums = [
 //
 //    with Y being the number of albums.
 
+var Y = talkingHeadsAlbums.length
+// var Y = 0;
+// var Y = 1;
+// var Y = 2;
+// var Y = 6;
+// var Y = 7;
+// var Y = 9;
+
+// if (Y % 2 === 0) {
+//   console.log(`The number ${Y} is divisible by 2`);
+// } else if (Y % 3 === 0) {
+//   console.log(`The number ${Y} is divisible by 3`);
+// } else if (Y % 2 === 0 && Y % 3 === 0) {
+//   console.log(`The number ${Y} is divisible by 2 and 3`);
+// } else if (Y === 0){
+//   console.log(`Y is 0`);
+// } else {
+//   console.log(`The number ${Y} is not divisible by 2 or 3`);
+// }
+
+if (Y === 0){
+  console.log(`Y is 0`);
+}
+else if (Y % 2 === 0 && Y % 3 === 0) {
+  console.log(`The number ${Y} is divisible by 2 and 3`);
+}
+else if (Y % 2 === 0) {
+  console.log(`The number ${Y} is divisible by 2`);
+} 
+else if (Y % 3 === 0) {
+  console.log(`The number ${Y} is divisible by 3`);
+} 
+else {
+  console.log(`The number ${Y} is not divisible by 2 or 3`);
+}
+
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 
@@ -166,12 +249,32 @@ const talkingHeadsAlbums = [
 
 // 1. Use a for loop to print out the name of each Talking Heads album
 
+for(album of talkingHeadsAlbums) {
+   console.log(album.title);
+}
+
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
+
+var sireTally = 0;
+
+for(album of talkingHeadsAlbums) {
+  if(album.albumDetails.label ==  'Sire') {
+      sireTally++;
+  }
+  if(album.albumDetails.labels) {
+      if(album.albumDetails.labels.includes('Sire')) {
+          sireTally++;
+      }
+  }
+}
+
+console.log('sire count = ' + sireTally); // NOT WORKING...
+
 
 /////////////////////////////////////////////////////
 // Part 7: More Tasks With Conditionals and Iteration
@@ -242,7 +345,7 @@ const tickets = [
 //    - {amount: 90.00}                                  => "PREMIER PLUS"
 //    - {amount: 50.00, discount: true,  zombie: true}   => "STANDARD $20 DRINKS"
 
-const tickets = [
+const prices = [
   {amount: 50.00, discount: false, zombie: true},
   {amount: 60.00, discount: true,  zombie: false},
   {amount: 50.00},
