@@ -9,12 +9,19 @@ const album1 = {
     label:    "Sire",
     formats:  ["LP"]
   }
-}  
+}
 
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 
+const ablum1Label = album1.albumDetails.label
+console.log (ablum1Label)
+
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
+
+album1.title = "Talking Heads: 77"
+
+console.log(album1.title)
 
 const album2 = {
   title: "More Songs About Buildings and Food",
@@ -38,8 +45,14 @@ const album3 = {
 //    album3's formats
 // Check out the Array.push method!
 
+album3.albumDetails.formats.push("LP")
+console.log(album3.albumDetails.formats)
+
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
+
+album3.albumDetails.released = new Date("August 3, 1979")
+console.log (album3.albumDetails.released)
 
 const album4 = {
   title: "Remain in Light",
@@ -51,6 +64,10 @@ const album4 = {
 
 // 5. Add the label "Sire" to album4's details
 
+album4.albumDetails.label = "Sire"
+
+console.log(album4.albumDetails.label)
+
 const album5 = {
   title: "Speaking in Tongues",
   albumDetails: {
@@ -60,6 +77,10 @@ const album5 = {
 }  
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
+
+album5.albumDetails.formats = ["CD", "Cassette", "LP"]
+
+console.log(album5.albumDetails.formats)
 
 const album6 = {
   title: "Little Creatures",
@@ -73,6 +94,11 @@ const album6 = {
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
 
+let label6 = album6.albumDetails.labels[1]
+let labelFix = label6.toUpperCase()
+
+console.log(labelFix)
+
 const album7 = {
   title: "True Stories",
   albumDetails: {
@@ -85,6 +111,10 @@ const album7 = {
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
+
+ let label7 = album7.albumDetails.labels
+ let labelFix2 = label7.split()
+console.log(labelFix2)
 
 /////////////////////////////////////////////////////
 // Part 2: More Tasks About Datatypes and Structures
@@ -112,6 +142,15 @@ const talkingHeadsAlbums = [
 
 // 1. Create an object literal called `band`.
 
+
+let band = {
+  name: "Talking Heads",
+  members: "David Byrne",
+  albums: talkingHeadsAlbums
+}
+band.members += [" Tiny Weymouth", " Chris Franz", " Jerry Harrison"]
+console.log(band)
+
 // 2. Give it the property `name` and set it to "Talking Heads"
 
 // 3. Give it the property `members` and set it to an array with a single
@@ -127,6 +166,12 @@ const talkingHeadsAlbums = [
 // Part 3: Conditional Logic
 ////////////////////////////////////////////////
 
+if (talkingHeadsAlbums.length >= 6) {
+    console.log("The Talking Heads were a prolific band!")
+} else {
+    console.log("The Talking Heads didn't have much output.")
+}
+
 // 1. Write a conditional to console.log "Talking Heads were a prolific band"
 //    if the Talking Heads have 6 albums or more. Otherwise, console.log
 //    "Talking heads didn't have much output." Use the array of albums
@@ -137,6 +182,11 @@ const talkingHeadsAlbums = [
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
 
+if (talkingHeadsAlbums.length % 2 === 1) {
+  console.log("The number " + talkingHeadsAlbums.length + " is odd.")
+} else {
+  console.log("The number " + talkingHeadsAlbums.length + " is even.")
+}
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
 //    console.log one of:
@@ -147,6 +197,19 @@ const talkingHeadsAlbums = [
 //
 //    with Y being the number of albums.
 
+let y = talkingHeadsAlbums.length
+let divide2 = (y % 2)
+let divide3 = (y % 3)
+if (divide2, divide3 == 0) {
+  console.log("The number " + y + " is divisible by 2 or 3")
+} else if (divide2 == 0) {
+  console.log("The number " + y + " is divisible by 2")
+} else if (divide3 == 0) {
+  console.log("The number " + y + " is divisible by 3")
+} else {
+  console.log("The number is not divisible by 2 or 3")
+}
+
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 
@@ -155,10 +218,18 @@ const talkingHeadsAlbums = [
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
-
+for (let albumList of talkingHeadsAlbums) {
+  console.log(albumList)
+}
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
+
+let sireTally = talkingHeadsAlbums.albumDetails.label[0]
+for (i = 0; i < 8; i++) {
+  console.log(sireTally)
+}
+
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
@@ -244,3 +315,4 @@ const tickets = [
   {amount: 90.00},
   {amount: 50.00, discount: true}
 ]  
+
