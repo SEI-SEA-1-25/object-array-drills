@@ -1,15 +1,5 @@
-console.log("main.js linked!");
-
 ////////////////////////////////////////////////
-// Part 1: Linking
-////////////////////////////////////////////////
-
-// Link this JavaScript file to an HTML document.
-// You'll know the file is correctly linked if the console says
-// "main.js linked!"
-
-////////////////////////////////////////////////
-// Part 2: Working With Data Structures
+// Part 1: Working With Data Structures
 ////////////////////////////////////////////////
 
 const album1 = {
@@ -19,12 +9,22 @@ const album1 = {
     label:    "Sire",
     formats:  ["LP"]
   }
-};
+}
 
 // 1. Retrieve the string "Sire" from album1, and save it in a sensibly named
 //    variable.
 
+const ablum1Label = album1.albumDetails.label
+console.log ("1 ", ablum1Label)
+
 // 2. Change the title of album1 from "Talking Heads" to "Talking Heads: 77"
+
+//album1.title += ": 77"
+
+
+album1.title = "Talking Heads: 77"
+
+console.log(album1.title)
 
 const album2 = {
   title: "More Songs About Buildings and Food",
@@ -33,7 +33,7 @@ const album2 = {
     label:    "Sire",
     formats:  ["LP", "8-track"]
   }
-};
+}  
 
 const album3 = {
   title: "Fear of Music",
@@ -42,14 +42,22 @@ const album3 = {
     label:    "Sire",
     formats:  ["Cassette"]
   }
-};
+}  
 
 // 3. Access album2's formats array and use an array method to add "LP" to
 //    album3's formats
 // Check out the Array.push method!
 
+
+
+album3.albumDetails.formats.push("LP")
+console.log(album3.albumDetails.formats)
+
 // 4. Change the release date of album3 from a string into a Date object
 // Look ahead to album4 for a clue!
+
+album3.albumDetails.released = new Date("August 3, 1979")
+console.log (album3.albumDetails.released)
 
 const album4 = {
   title: "Remain in Light",
@@ -57,9 +65,13 @@ const album4 = {
     released: new Date("October 8, 1980"),
     formats: ["Cassette", "LP"]
   }
-};
+}  
 
 // 5. Add the label "Sire" to album4's details
+
+album4.albumDetails.label = "Sire"
+
+console.log(album4.albumDetails.label)
 
 const album5 = {
   title: "Speaking in Tongues",
@@ -67,9 +79,13 @@ const album5 = {
     released: new Date("May 31, 1983"),
     label:    "Sire"
   }
-};
+}  
 
 // 6. Add a 'formats' array to album 5 and add "CD", "Cassette", and "LP"
+
+album5.albumDetails.formats = ["CD", "Cassette", "LP"]
+
+console.log(album5.albumDetails.formats)
 
 const album6 = {
   title: "Little Creatures",
@@ -78,10 +94,15 @@ const album6 = {
     labels:   ["Sire", "emi"],
     formats:  ["CD", "cassette", "LP"]
   }
-};
+}  
 
 // 7. Make the label "emi" in album6 all uppercase
 // google how to make a string uppercase in js!
+
+let label6 = album6.albumDetails.labels[1]
+let labelFix = label6.toUpperCase()
+
+console.log(labelFix)
 
 const album7 = {
   title: "True Stories",
@@ -90,20 +111,28 @@ const album7 = {
     labels:   "Sire, EMI",
     formats:  ["CD", "cassette", "LP"]
   }
-};
+}  
 
 // 8. Convert album7's 'labels' property from the string value
 //    "Sire, EMI" into the array: ["Sire", "EMI"]
 // google js array split!
 
+album7.albumDetails.labels = album7.albumDetails.labels.split(",")
+console.log(album7.albumDetails.labels) 
+
+
+/////////////////////////////////////////////////////
+// Part 2: More Tasks About Datatypes and Structures
+/////////////////////////////////////////////////////
+
 const album8 = {
   title: "Naked",
   albumDetails: {
     released: new Date("March 15, 1988"),
-    label:    ["Sire", "EMI"],
+    labels:    ["Sire", "EMI"],
     formats:  ["CD", "cassette", "LP"]
   }
-};
+}  
 
 const talkingHeadsAlbums = [
   album1,
@@ -114,28 +143,39 @@ const talkingHeadsAlbums = [
   album6,
   album7,
   album8
-];
-
-/////////////////////////////////////////////////////
-// Part 3: More Tasks About Datatypes and Structures
-/////////////////////////////////////////////////////
+]  
 
 // 1. Create an object literal called `band`.
 
+const band = {}
 // 2. Give it the property `name` and set it to "Talking Heads"
+
+band.name = "Talking Heads"
 
 // 3. Give it the property `members` and set it to an array with a single
 //    string, "David Byrne", in it.
 
+band.albums = talkingHeadsAlbums
+
 // 4. Give it the property `albums` and set it to the array stored in the
 //    variable talkingHeadsAlbums
+
+band.memebers = ["David Byrne"]
 
 // 5. Add "Tiny Weymouth", "Chris Franz" and "Jerry Harrison" to the members
 //    array.
 
+band.memebers.push("Tiny Weymouth", "Chris Farnz", "Jerry Harrison")
+
 ////////////////////////////////////////////////
-// Part 4: Conditional Logic
+// Part 3: Conditional Logic
 ////////////////////////////////////////////////
+
+if (talkingHeadsAlbums.length >= 6) {
+    console.log("The Talking Heads were a prolific band!")
+} else {
+    console.log("The Talking Heads didn't have much output.")
+}
 
 // 1. Write a conditional to console.log "Talking Heads were a prolific band"
 //    if the Talking Heads have 6 albums or more. Otherwise, console.log
@@ -147,6 +187,11 @@ const talkingHeadsAlbums = [
 //    "The number X is odd" or "The number X is even" with X being
 //    the number of albums.
 
+if (talkingHeadsAlbums.length % 2 === 1) {
+  console.log("The number " + talkingHeadsAlbums.length + " is odd.")
+} else {
+  console.log("The number " + talkingHeadsAlbums.length + " is even.")
+}
 // 3. Write conditionals to check if the number of albums in
 //    talkingHeadsAlbums is divisible by either 2 or 3, and then
 //    console.log one of:
@@ -154,27 +199,49 @@ const talkingHeadsAlbums = [
 //    - "The number Y is divisible by 3",
 //    - "The number Y is divisible by 2 and 3", or
 //    - "The number Y is not divisible by 2 or 3",
-//
+//    this is the 
 //    with Y being the number of albums.
+
+let y = talkingHeadsAlbums.length
+let divide2 = (y % 2)
+let divide3 = (y % 3)
+if (divide2, divide3 == 0) {
+  console.log("The number " + y + " is divisible by 2 or 3")
+} else if (divide2 == 0) {
+  console.log("The number " + y + " is divisible by 2")
+} else if (divide3 == 0) {
+  console.log("The number " + y + " is divisible by 3")
+} else {
+  console.log("The number is not divisible by 2 or 3")
+}
 
 // 4. Check your logic above against the numbers: 0, 1, 2, 6, 7, and 9.
 //    Make sure it always works!
 
 /////////////////////////////////////////////////////
-// Part 5: For Loops
+// Part 4: For Loops
 /////////////////////////////////////////////////////
 
 // 1. Use a for loop to print out the name of each Talking Heads album
-
+for (let albumList of talkingHeadsAlbums) {
+  console.log(albumList)
+}
 // 2. Create a variable called `sireTally`, and set it to the integer value 0.
 //    Then use a for-loop to go through all the Talking Heads albums,
 //    incrementing sireTally if the album was released under the "Sire" label.
+
+
+// let sireTally = talkingHeadsAlbums.albumDetails.label[0]
+// for (i = 0; i < 8; i++) {
+//   console.log(sireTally)
+// }
+
 //
 //    Warning: some albums have a property `.label`, which is a string, and some
 //    have `.labels`, which is an Array!
 
 /////////////////////////////////////////////////////
-// Part 7: More Tasks With Conditionals and Iteration
+// Part 5: More Tasks With Conditionals and Iteration
 /////////////////////////////////////////////////////
 
 // 1. There is a Talking Heads concert at DAR Constitutional Hall, and
@@ -193,27 +260,27 @@ const talkingHeadsAlbums = [
 //      section: "right",
 //      type: "premium",
 //      seats: 1
-//    };
+//    }  
 //    const ticket1 = {
 //      name: "Newt Gingrich",
 //      section: "center",
 //      type: "standard",
 //      seats: 4
-//    };
+//    }  
 //
 //    Messages:
 //    "Welcome, Madeline Albright! You may sit anywhere in the first 3 rows of the right section."
 //    "Welcome, Newt Gingrich! You and your party may sit anywhere except first 3 rows of the center section.
 //     Please be sure to leave no seats between you."
 
-const tickets = [
+const ticketSections = [
   {name: "Boutros Boutros-Ghali", section: "center", type: "premium",  seats: 1},
   {name: "Ann Richards",          section: "left",   type: "premium",  seats: 2},
   {name: "George Will",           section: "left",   type: "standard", seats: 2},
   {name: "Marion Barry",          section: "center", type: "standard", seats: 8},
   {name: "Warren Christopher",    section: "right",  type: "standard", seats: 1},
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
-];
+]  
 
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
@@ -253,4 +320,18 @@ const tickets = [
   {amount: 80.00, discount: true},
   {amount: 90.00},
   {amount: 50.00, discount: true}
-];
+]  
+
+for (let i = 0; i < tickets.length; i++) {
+  let message = ""
+  let credit = 0
+  if (tickets.[i].amount === 50) {
+    message += "Standard"
+  } else if (tickets.[i].amount === 65) {
+    message += "PREMIER"
+  } else if (tickets.[i].amount === 90) {
+    message += "PREMIER PLUS"
+  } else if (tickets.[i].amount === 80 && tickets[i].discount) {
+    message += "PREMIER PLUS"
+  }
+}
