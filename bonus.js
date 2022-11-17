@@ -40,7 +40,14 @@ const ticketSections = [
   {name: "Warren Christopher",    section: "right",  type: "standard", seats: 1},
   {name: "Bob Dole",              section: "center", type: "premium",  seats: 3}
 ]  
-
+for (let i = 0; i < ticketSections.length; i++) {
+  if (ticketSections[i].type === "premium"){
+    console.log(`Welcome, ${ticketSections[i].name}! You may sit anywhere in the first 3 rows of the right section`)
+  } else if (ticketSections.[i].type === "standard"){
+    console.log(`Welcome, ${ticketSections[i].name}! You and your party may sit anywhere except first 3 rows of the center section.
+    //     Please be sure to leave no seats between you."`)
+  }
+}
 // 2. There is a concert at the LA County Fairgrounds by the Southland's
 //    hottest Talking Heads tribute band for zombie afficianados,
 //    "The Wailing Deads" (known as "The Walking Deads" until they received
@@ -80,3 +87,19 @@ const tickets = [
   {amount: 90.00},
   {amount: 50.00, discount: true}
 ]  
+
+for (let i = 0; i < tickets.length; i++) {
+  if (tickets[i].amount === 50) {
+    console.log(`Standard`)
+    voucherValue > 0 ? console.log(`standard $${voucherValue} drinks`) : console.log(`standard no drinks`)
+  } else if (tickets[i].amount === 65) {
+    console.log(`Premiere`)
+    voucherValue > 0 ? console.log(`premiere $${voucherValue} drinks`) : console.log(`premiere no drinks`)
+  } else if (tickets[i].amount === 80 && tickets[i].discount === true) {
+    console.log(`Premiere Plus`)
+  } else if (tickets[i].amount === 90) {
+    console.log(`Premiere plus`)
+  } else {
+    console.log(`Error`)
+  }
+}
